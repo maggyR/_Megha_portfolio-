@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<MyProfile.Models.Project> 
+<!-- HERO -->
+<section id="home" class="hero">
+    <div>
+        <h1>Hello, I'm <span>Megha Patel</span></h1>
+        <p class="lead mt-3">Full Stack .NET Developer</p>
+        <a href="#projects" class="btn btn-custom mt-3">View My Work</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="mb-4">About Me</h2>
+    <p>
+        I’m a Full Stack .NET Developer with experience building and maintaining web-based applications for small businesses. I’ve worked across the entire stack using C#, ASP.NET Core, SQL, and modern frontend technologies. Recently, I’ve been focused on developing scalable portfolio and business applications, handling everything from requirement gathering to deployment. I enjoy solving real-world problems, improving user experience, and writing clean, maintainable code.
+    </p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="mb-4">Projects</h2>
+
+    <div class="row">
+        @foreach (var p in Model)
+        {
+            <div class="col-md-4">
+                <div class="card p-3 mb-4">
+                    <h5>@p.Title</h5>
+                    <p>@p.Description</p>
+                    <p><b>Tech:</b> @p.TechStack</p>
+                    <a href="@p.GitHubLink" target="_blank" class="btn btn-custom">GitHub</a>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="mb-5 pb-5">
+    <h2 class="mb-4">Contact Me</h2>
+
+    <form>
+
+        <div class="mb-3">
+            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+        </div>
+
+        <div class="mb-3">
+
+            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+        </div>
+
+        <div class="mb-3">
+            <input type="text" id="subject" class="form-control" placeholder="Subject">
+        </div>
+
+        <div class="mb-3">
+            <textarea id="message" class="form-control" rows="5" placeholder="Write your message here..."></textarea>
+        </div>
+
+        <button type="button" class="btn btn-primary">
+            <a href="mailto:mghptl@yahoo.com" style="color: white; text-decoration: none;">Send Message</a>
+           
+        </button>
+    </form>
+    
+</section>
